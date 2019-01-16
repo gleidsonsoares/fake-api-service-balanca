@@ -22,11 +22,7 @@ public class BalancaServiceFactory implements FactoryBean<BalancaService> {
 
     @Override
     public BalancaService getObject() {
-        BalancaService bean = (BalancaService) applicationContext.getBean(fakeBalancaServiceProperties.getOption());
-
-        System.out.println("Implementação de BalancaService ativa --> " + bean.getClass().getName());
-
-        return bean;
+        return (BalancaService) applicationContext.getBean(fakeBalancaServiceProperties.getOption());
     }
 
     @Override
