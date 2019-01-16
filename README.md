@@ -1,6 +1,8 @@
-## Artefato: fake-api-service-balanca
-## Name: (Fake API Service - ControladorBalanca)
-## Descrição: Fake API do Serviço Controlador da Balanca de Bioimpedância
+#### Artefato: fake-api-service-balanca
+#### Name: Fake API Service - ControladorBalanca
+#### Descrição: Fake API do Serviço Controlador da Balanca de Bioimpedância
+
+---
 
 ## Sumário:
 
