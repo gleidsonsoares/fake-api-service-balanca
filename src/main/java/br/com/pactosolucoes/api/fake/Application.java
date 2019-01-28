@@ -18,7 +18,7 @@ public class Application {
 
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-        return args -> out.println("Implementação de BalancaService ativa --> " + ctx.getBean(BalancaService.class).getClass().getName());
+        return args -> out.println(ctx.getBean(BalancaService.class).getScenarioDescription());
     }
 
 }
