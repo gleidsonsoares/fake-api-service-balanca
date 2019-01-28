@@ -1,7 +1,6 @@
 package br.com.pactosolucoes.api.fake.service.balanca.impl;
 
 import br.com.pactosolucoes.api.fake.dto.RetornoBalancaDTO;
-import br.com.pactosolucoes.api.fake.service.balanca.BalancaService;
 import br.com.pactosolucoes.api.fake.service.balanca.BalancaServiceScenarioDescriptor;
 import org.springframework.stereotype.Service;
 
@@ -17,18 +16,15 @@ import static br.com.pactosolucoes.api.fake.dto.factory.RetornoBalancaDTOFactory
         firstActionDescription = "Retornará um resultado zerado",
         secondActionDescription = "Retornará um resultado completo"
 )
-public class BalancaServiceRetornoZeradoDepoisCompleto implements BalancaService {
+public class BalancaServiceRetornoZeradoDepoisCompleto extends AbstractBalancaService {
 
     @Override
-    public RetornoBalancaDTO simularRetornoBalanca(Integer contadorChamadasRetornoBalanca, Integer indexContadorProximaAcao) {
-        RetornoBalancaDTO retornoBalancaDTO;
+    RetornoBalancaDTO getRetornoBalancaPrimeiraAcao() {
+        return getRetornoFalseResultadoZerado();
+    }
 
-        if (contadorChamadasRetornoBalanca < indexContadorProximaAcao) {
-            retornoBalancaDTO = getRetornoFalseResultadoZerado();
-        } else {
-            retornoBalancaDTO = getRetornoFalseResultadoAleatorio();
-        }
-
-        return retornoBalancaDTO;
+    @Override
+    RetornoBalancaDTO getRetornoBalancaSegundaAcao() {
+        return getRetornoFalseResultadoAleatorio();
     }
 }

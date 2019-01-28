@@ -20,7 +20,7 @@ public class UserProfileDTO {
     @Getter
     @Setter
     @ToString
-    public static class UserProfile {
+    private static class UserProfile {
 
         @JsonProperty("Id")
         private Integer id;
