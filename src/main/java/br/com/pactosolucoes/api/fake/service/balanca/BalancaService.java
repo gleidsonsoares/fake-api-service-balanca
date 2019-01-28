@@ -11,7 +11,7 @@ import br.com.pactosolucoes.api.fake.dto.factory.RetornoBalancaDTOFactory;
  * @author Bruno Cattany
  * @since 07/01/2019
  */
-public interface BalancaService {
+public interface BalancaService extends BalancaServiceScenarioDescriptorReader {
 
     /**
      * Deve simular o comportamento interno do <b>Serviço Controlador da Balança</b>.
@@ -22,10 +22,13 @@ public interface BalancaService {
      * @param indexContadorProximaAcao       indica em qual rodada indicada pelo valor de <code>contadorChamadasRetornoBalanca</code>
      *                                       será realizado a próxima ação.
      *
+     * @param threadSleepingTimeSeconds indica o tempo que a thread irá dormir a cada interação do método {@link BalancaController#pegarRetornoBalanca(Integer)}.
+     *
      * @return um {@link RetornoBalancaDTO} baseado no cenário proposto pela implementação.
      * Veja a fábrica do mesmo em: {@link RetornoBalancaDTOFactory}.
      */
     RetornoBalancaDTO simularRetornoBalanca(Integer contadorChamadasRetornoBalanca,
-                                            Integer indexContadorProximaAcao);
+                                            Integer indexContadorProximaAcao,
+                                            Integer threadSleepingTimeSeconds) throws InterruptedException;
 
 }

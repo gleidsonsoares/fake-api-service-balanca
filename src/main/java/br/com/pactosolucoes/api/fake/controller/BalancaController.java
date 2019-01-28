@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import static java.lang.System.out;
+
 /**
  * Responsável por simular o controlador do serviço controlador da balança.
  *
@@ -19,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class BalancaController {
 
-    private static Integer CONTADOR_CHAMADAS_RETORNO_BALANCA = 0;
+    private static Integer CONTADOR_CHAMADAS_RETORNO_BALANCA = null;
 
     private final BalancaService balancaService;
 
@@ -32,20 +34,31 @@ public class BalancaController {
     public ResponseEntity<LigarBalancaDTO> ligarBalanca(@RequestBody UserProfileDTO userProfileDTO) {
         CONTADOR_CHAMADAS_RETORNO_BALANCA = 0;
 
+        logarLigarBalanca(userProfileDTO);
+
         return ResponseEntity.ok(new LigarBalancaDTO(true));
     }
 
-    @GetMapping(path = "/ControleBalanca.PegarRetornoBalanca")
-    public ResponseEntity<RetornoBalancaDTO> pegarRetornoBalanca(@RequestParam(value = "Id") Integer id) {
-        CONTADOR_CHAMADAS_RETORNO_BALANCA++;
+    private void logarLigarBalanca(UserProfileDTO userProfileDTO) {
+        out.println("****");
+        out.println("Balança Ligada!");
+        out.println("UserProfileDTO recebido ->");
+        out.println(userProfileDTO);
+        out.println("****");
+    }
 
-        System.out.println("Executarei a seguinte implementação de (BalancaService) -> " + balancaService);
+    @GetMapping(path = "/ControleBalanca.PegarRetornoBalanca")
+    public ResponseEntity<RetornoBalancaDTO> pegarRetornoBalanca(@RequestParam(value = "Id") Integer id) throws InterruptedException {
+        out.println("Id recebido -> " + id);
 
         RetornoBalancaDTO retornoBalancaDTO = balancaService.simularRetornoBalanca(
-                CONTADOR_CHAMADAS_RETORNO_BALANCA, 3
+                CONTADOR_CHAMADAS_RETORNO_BALANCA,
+                3,
+                0
         );
 
         return ResponseEntity.ok(retornoBalancaDTO);
     }
+
 
 }
