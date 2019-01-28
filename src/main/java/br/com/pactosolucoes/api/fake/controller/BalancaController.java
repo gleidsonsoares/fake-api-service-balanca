@@ -51,6 +51,10 @@ public class BalancaController {
     public ResponseEntity<RetornoBalancaDTO> pegarRetornoBalanca(@RequestParam(value = "Id") Integer id) throws InterruptedException {
         out.println("Id recebido -> " + id);
 
+        if (CONTADOR_CHAMADAS_RETORNO_BALANCA != null) {
+            CONTADOR_CHAMADAS_RETORNO_BALANCA++;
+        }
+
         RetornoBalancaDTO retornoBalancaDTO = balancaService.simularRetornoBalanca(
                 CONTADOR_CHAMADAS_RETORNO_BALANCA,
                 3,

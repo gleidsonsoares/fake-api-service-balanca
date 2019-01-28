@@ -18,8 +18,6 @@ public abstract class AbstractBalancaService implements BalancaService {
             throw new BalancaDesligadaException();
         }
 
-        contadorChamadasRetornoBalanca++;
-
         logarExecucaoCenario(contadorChamadasRetornoBalanca, threadSleepingTimeSeconds);
 
         Thread.sleep(threadSleepingTimeSeconds);
