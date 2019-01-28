@@ -13,14 +13,16 @@ import static java.lang.System.out;
 public abstract class AbstractBalancaService implements BalancaService {
 
     @Override
-    public RetornoBalancaDTO simularRetornoBalanca(Integer contadorChamadasRetornoBalanca, Integer indexContadorProximaAcao) {
+    public RetornoBalancaDTO simularRetornoBalanca(Integer contadorChamadasRetornoBalanca, Integer indexContadorProximaAcao, Integer threadSleepingTimeSeconds) throws InterruptedException {
         if (contadorChamadasRetornoBalanca == null) {
             throw new BalancaDesligadaException();
         }
 
         contadorChamadasRetornoBalanca++;
 
-        logarExecucaoCenario(contadorChamadasRetornoBalanca);
+        logarExecucaoCenario(contadorChamadasRetornoBalanca, threadSleepingTimeSeconds);
+
+        Thread.sleep(threadSleepingTimeSeconds);
 
         if (contadorChamadasRetornoBalanca < indexContadorProximaAcao) {
             return getRetornoBalancaPrimeiraAcao();
@@ -33,9 +35,10 @@ public abstract class AbstractBalancaService implements BalancaService {
 
     abstract RetornoBalancaDTO getRetornoBalancaSegundaAcao();
 
-    private void logarExecucaoCenario(Integer contadorChamadasRetornoBalanca) {
+    private void logarExecucaoCenario(Integer contadorChamadasRetornoBalanca, Integer threadSleepingTimeSeconds) {
         out.println("****");
         out.println("Tentativa nº " + contadorChamadasRetornoBalanca + " de ligar a balança.");
+        out.println("A thread vai dormir " + threadSleepingTimeSeconds + " segundos e executar o cenário.\n");
         out.println(this.getScenarioDescription());
         out.println("****");
     }

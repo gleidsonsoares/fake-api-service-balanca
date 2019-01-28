@@ -23,10 +23,13 @@ public interface BalancaService extends BalancaServiceScenarioDescriptorReader, 
      * @param indexContadorProximaAcao       indica em qual rodada indicada pelo valor de <code>contadorChamadasRetornoBalanca</code>
      *                                       será realizado a próxima ação.
      *
+     * @param threadSleepingTimeSeconds indica o tempo que a thread irá dormir a cada interação do método {@link BalancaController#pegarRetornoBalanca(Integer)}.
+     *
      * @return um {@link RetornoBalancaDTO} baseado no cenário proposto pela implementação.
      * Veja a fábrica do mesmo em: {@link RetornoBalancaDTOFactory}.
      */
     RetornoBalancaDTO simularRetornoBalanca(Integer contadorChamadasRetornoBalanca,
-                                            Integer indexContadorProximaAcao);
+                                            Integer indexContadorProximaAcao,
+                                            Integer threadSleepingTimeSeconds) throws InterruptedException;
 
 }
