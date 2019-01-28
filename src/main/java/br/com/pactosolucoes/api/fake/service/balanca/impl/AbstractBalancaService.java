@@ -2,6 +2,7 @@ package br.com.pactosolucoes.api.fake.service.balanca.impl;
 
 import br.com.pactosolucoes.api.fake.dto.RetornoBalancaDTO;
 import br.com.pactosolucoes.api.fake.service.balanca.BalancaService;
+import br.com.pactosolucoes.api.fake.service.balanca.exception.BalancaDesligadaException;
 
 import static java.lang.System.out;
 
@@ -13,6 +14,10 @@ public abstract class AbstractBalancaService implements BalancaService {
 
     @Override
     public RetornoBalancaDTO simularRetornoBalanca(Integer contadorChamadasRetornoBalanca, Integer indexContadorProximaAcao) {
+        if (contadorChamadasRetornoBalanca == null) {
+            throw new BalancaDesligadaException();
+        }
+
         contadorChamadasRetornoBalanca++;
 
         logarExecucaoCenario(contadorChamadasRetornoBalanca);
