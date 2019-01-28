@@ -1,5 +1,6 @@
 package br.com.pactosolucoes.api.fake.service.balanca;
 
+import br.com.pactosolucoes.api.fake.config.properties.BeanConfigurableByProperties;
 import br.com.pactosolucoes.api.fake.controller.BalancaController;
 import br.com.pactosolucoes.api.fake.dto.RetornoBalancaDTO;
 import br.com.pactosolucoes.api.fake.dto.UserProfileDTO;
@@ -11,7 +12,7 @@ import br.com.pactosolucoes.api.fake.dto.factory.RetornoBalancaDTOFactory;
  * @author Bruno Cattany
  * @since 07/01/2019
  */
-public interface BalancaService {
+public interface BalancaService extends BalancaServiceScenarioDescriptorReader, BeanConfigurableByProperties {
 
     /**
      * Deve simular o comportamento interno do <b>Serviço Controlador da Balança</b>.
