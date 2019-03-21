@@ -55,4 +55,4 @@ Consulte a documentação da propriedade **fake.balanca.service.option** para sa
 
 ### d) Como configurar:
 
-Para uma inicialização direta, não é necessário nenhuma configuração.
+Para uma inicialização direta, não é necessário nenhuma configuração, apenas sendo necessário installar o plugin do **Lombok** no marketplace da sua IDE.
