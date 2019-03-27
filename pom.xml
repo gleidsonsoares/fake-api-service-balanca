@@ -12,7 +12,9 @@
 
     <groupId>br.com.pactosolucoes.api.fake</groupId>
     <artifactId>fake-api-service-balanca</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+
+    <packaging>jar</packaging>
 
     <name>Fake API Service - ControladorBalanca</name>
     <description>
@@ -62,5 +64,34 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <finalName>fake-api-service-balanca</finalName>
+                    <executable>true</executable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>${project.version}-spring-boot</classifier>
+                            <mainClass>
+                                br.com.pactosolucoes.api.fake.Application
+                            </mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
 
 </project>
