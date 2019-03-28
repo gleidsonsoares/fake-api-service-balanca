@@ -73,8 +73,8 @@ Para uma inicialização direta, não é necessário nenhuma configuração, ape
 Toda estrutura que será mencionada abaixo se encontra no diretório **dist** do projeto.
 
 Basicamente há 2 maneiras de executar a aplicação pelo Windows:
-- (**executor-jar.bat)** - Via **execução do JAR** no Java. Para este, é necessário o **(Passo #2)** 
-- (**install-fake-api-service-balanca.bat** / **wrapper-service.exe**) - Via **serviço do Windows** --> Para estes, é necessário o **Passo #3 ou #4**
+- Via **execução do JAR no Java**. Para este, é necessário o **Passo #2** --> **(executor-jar.bat)**
+- Via **serviço do Windows**. Para este, é necessário o **Passo #3 ou #4** --> (**install-fake-api-service-balanca.bat** / **wrapper-service.exe**)
 
 **Para ambos os casos, o passo 1 deve ser executado!**
 
