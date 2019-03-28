@@ -73,8 +73,10 @@ Para uma inicialização direta, não é necessário nenhuma configuração, ape
 Toda estrutura que será mencionada abaixo se encontra no diretório **dist** do projeto.
 
 Basicamente há 2 maneiras de executar a aplicação pelo Windows:
-- Via **execução do JAR** no Java **(Passo #2)** --> **executor-jar.bat**
-- Via **serviço do Windows (Passo #3 ou Passo #4)** --> **install-fake-api-service-balanca.bat** / **wrapper-service.exe**
+- (**executor-jar.bat)** - Via **execução do JAR** no Java. Para este, é necessário o **(Passo #2)** 
+- (**install-fake-api-service-balanca.bat** / **wrapper-service.exe**) - Via **serviço do Windows** --> Para estes, é necessário o **Passo #3 ou #4**
+
+**Para ambos os casos, o passo 1 deve ser executado!**
 
 ## # 1. Geração e realocação do JAR da aplicação
 
@@ -91,10 +93,10 @@ o jar esteja no mesmo diretório do **.bat** em questão.
 
 ## # 3. Executando BAT como Administrador e instalando o Serviço 'fake-api-service-balanca'
 
-Execute o arquivo **install-fake-api-service-balanca.bat**
+Execute o arquivo **install-fake-api-service-balanca.bat**.
 Garanta que na mesma pasta dele, esteja:
 
-- fake-api-service-balanca.jar
+- fake-api-service-balanca-X.X-spring-boot.jar
 - wrapper-service.exe
 - wrapper-service.xml
 
