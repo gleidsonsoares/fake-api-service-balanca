@@ -63,8 +63,4 @@ echo "Garatindo a desinstacao do servico, caso ja exista"
 
 wrapper-service.exe uninstall
 
-echo "Instalando o servico"
-
-wrapper-service.exe install
-
 PAUSE
