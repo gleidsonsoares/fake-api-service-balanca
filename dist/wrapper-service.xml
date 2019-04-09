@@ -4,7 +4,7 @@
     <name>fake-api-service-balanca-1.0</name>
     <description>Fake API Service Balanca 1.0</description> <!-- Nome que irá aparecer na descrição dos serviços -->
     <executable>java</executable>
-    <arguments>-jar "fake-api-service-balanca-spring-boot-1.0.jar"</arguments> <!-- Nome do jar que foi gerado no mvn:package -->
+    <arguments>-jar "fake-api-service-balanca-1.0-spring-boot.jar"</arguments> <!-- Nome do jar que foi gerado no mvn:package -->
     <logmode>rotate</logmode>
-    <logpath>./logs</logpath> <!-- Os logs serão colocado no diretório /logs, a partir de onde estiver o .jar -->
+    <!-- <logpath>./logs</logpath> Os logs serão colocado no diretório /logs, a partir de onde estiver o .jar -->
 </service>
